@@ -1,4 +1,4 @@
-FROM nginx:1.14
+FROM arm64v8/nginx:stable
 
 LABEL maintainer="ogenes.yi@gmail.com"
 
@@ -16,9 +16,9 @@ RUN apt-get update \
     vim \
     wget \
     net-tools \
-  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /var/lib/apt/lists/* 
 
 
 # 更改权限
-RUN mkdir /var/www \
+RUN mkdir -p /var/www \
     && chown -R www-data:www-data /var/www/ /var/log/nginx/
